@@ -57,9 +57,7 @@ describe('Breadcrumbs', () => {
     });
 
     it('should have list item elements inside the "list"', () => {
-      getBreadcrumbsList()
-        .get('li')
-        .should('be.visible');
+      getBreadcrumbsList().get('li').should('be.visible');
     });
 
     it('should have "data-id" for list items', () => {
@@ -122,9 +120,7 @@ describe('Breadcrumbs', () => {
       });
 
       it('should have 7 items inside the "list"', () => {
-        cy.findByRole('list')
-          .findAllByRole('listitem')
-          .should('have.length', 7);
+        cy.findByRole('list').findAllByRole('listitem').should('have.length', 7);
       });
 
       it('should have aria-expanded set to "false" on the dropdown button', () => {
@@ -145,9 +141,7 @@ describe('Breadcrumbs', () => {
         });
 
         it('should have 3 items inside the "list"', () => {
-          cy.findByRole('list')
-            .findAllByRole('listitem')
-            .should('have.length', 3);
+          cy.findByRole('list').findAllByRole('listitem').should('have.length', 3);
         });
 
         context('when the "More" button is clicked', () => {
@@ -160,15 +154,11 @@ describe('Breadcrumbs', () => {
           });
 
           it('should contain second link as the first menu item', () => {
-            cy.findAllByRole('menuitem')
-              .eq(0)
-              .should('contain', 'Second Link');
+            cy.findAllByRole('menuitem').eq(0).should('contain', 'Second Link');
           });
 
           it('should contain fifth link as the last menu item', () => {
-            cy.findAllByRole('menuitem')
-              .eq(-1)
-              .should('contain', 'Fifth Link');
+            cy.findAllByRole('menuitem').eq(-1).should('contain', 'Fifth Link');
           });
         });
       });
@@ -179,9 +169,7 @@ describe('Breadcrumbs', () => {
         });
 
         it('should have 2 list items inside the "list"', () => {
-          cy.findByRole('list')
-            .findAllByRole('listitem')
-            .should('have.length', 2);
+          cy.findByRole('list').findAllByRole('listitem').should('have.length', 2);
         });
 
         context('when the "More" button is clicked', () => {
@@ -194,15 +182,11 @@ describe('Breadcrumbs', () => {
           });
 
           it('should contain second link as the first menu item', () => {
-            cy.findAllByRole('menuitem')
-              .eq(0)
-              .should('contain', 'Second Link');
+            cy.findAllByRole('menuitem').eq(0).should('contain', 'Second Link');
           });
 
           it('should contain fifth link as the last menu item', () => {
-            cy.findAllByRole('menuitem')
-              .eq(-1)
-              .should('contain', 'Sixth Link');
+            cy.findAllByRole('menuitem').eq(-1).should('contain', 'Sixth Link');
           });
         });
       });
@@ -213,9 +197,7 @@ describe('Breadcrumbs', () => {
         });
 
         it('should have 2 list items inside the "list"', () => {
-          cy.findByRole('list')
-            .findAllByRole('listitem')
-            .should('have.length', 1);
+          cy.findByRole('list').findAllByRole('listitem').should('have.length', 1);
         });
 
         context('when the "More" button is clicked', () => {
@@ -228,15 +210,11 @@ describe('Breadcrumbs', () => {
           });
 
           it('should contain home link as the first menu item', () => {
-            cy.findAllByRole('menuitem')
-              .eq(0)
-              .should('contain', 'Home');
+            cy.findAllByRole('menuitem').eq(0).should('contain', 'Home');
           });
 
           it('should contain fifth link as the last menu item', () => {
-            cy.findAllByRole('menuitem')
-              .eq(-1)
-              .should('contain', 'Sixth Link');
+            cy.findAllByRole('menuitem').eq(-1).should('contain', 'Sixth Link');
           });
         });
       });

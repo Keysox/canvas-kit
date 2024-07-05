@@ -26,9 +26,7 @@ describe('Pagination', () => {
       });
 
       it('should have five list items', () => {
-        cy.get('ol')
-          .find('li')
-          .should('have.length', 5);
+        cy.get('ol').find('li').should('have.length', 5);
       });
 
       it('should have page buttons with correct text and aria-labels', () => {
@@ -64,37 +62,22 @@ describe('Pagination', () => {
       });
 
       it('should add correctly apply aria-current to the current page', () => {
-        cy.get('ol')
-          .find('button')
-          .first()
-          .should('have.attr', 'aria-current', 'page');
+        cy.get('ol').find('button').first().should('have.attr', 'aria-current', 'page');
       });
 
       context('when a page button is clicked', () => {
         beforeEach(() => {
           // click the 'page 4' button
-          cy.get('ol')
-            .find('button')
-            .eq(3)
-            .click();
+          cy.get('ol').find('button').eq(3).click();
         });
 
         it('should properly re-render the page range', () => {
           // get the first page button in the range
-          cy.get('ol')
-            .find('button')
-            .first()
-            .should('contain.text', '2');
+          cy.get('ol').find('button').first().should('contain.text', '2');
           // get the current page button
-          cy.get('ol')
-            .find('button')
-            .get('[aria-current="page"]')
-            .should('contain.text', '4');
+          cy.get('ol').find('button').get('[aria-current="page"]').should('contain.text', '4');
           // get the last page button in the range
-          cy.get('ol')
-            .find('button')
-            .last()
-            .should('contain.text', '6');
+          cy.get('ol').find('button').last().should('contain.text', '6');
         });
       });
     });
@@ -128,10 +111,7 @@ describe('Pagination', () => {
         it('should not update the current page when the step-to-previous button is clicked', () => {
           cy.findByLabelText('Previous').click();
           // get the current page button
-          cy.get('ol')
-            .find('button')
-            .get('[aria-current="page"]')
-            .should('contain.text', 1);
+          cy.get('ol').find('button').get('[aria-current="page"]').should('contain.text', 1);
         });
       });
 
@@ -151,39 +131,24 @@ describe('Pagination', () => {
         it('should not update the current page when the step-to-previous button is clicked', () => {
           cy.findByLabelText('Next').click();
           // get the current page button
-          cy.get('ol')
-            .find('button')
-            .get('[aria-current="page"]')
-            .should('contain.text', 10);
+          cy.get('ol').find('button').get('[aria-current="page"]').should('contain.text', 10);
         });
       });
 
       context('when the jump-to-first button is clicked', () => {
         beforeEach(() => {
           // click the 'page 4' button to enable the jump-to-first button
-          cy.get('ol')
-            .find('button')
-            .eq(3)
-            .click();
+          cy.get('ol').find('button').eq(3).click();
         });
 
         it('should properly re-render the page range (1,2,3,4,5)', () => {
           cy.findByLabelText('First').click();
           // get the first page button in the range
-          cy.get('ol')
-            .find('button')
-            .first()
-            .should('contain.text', '1');
+          cy.get('ol').find('button').first().should('contain.text', '1');
           // get the current page button
-          cy.get('ol')
-            .find('button')
-            .get('[aria-current="page"]')
-            .should('contain.text', '1');
+          cy.get('ol').find('button').get('[aria-current="page"]').should('contain.text', '1');
           // get the last page button in the range
-          cy.get('ol')
-            .find('button')
-            .last()
-            .should('contain.text', '5');
+          cy.get('ol').find('button').last().should('contain.text', '5');
         });
       });
 
@@ -191,26 +156,17 @@ describe('Pagination', () => {
         beforeEach(() => {
           // click the 'page 5' button to enable the step-to-previous button
           // get the last page button in the range
-          cy.get('ol')
-            .find('button')
-            .last()
-            .click();
+          cy.get('ol').find('button').last().click();
         });
 
         it('should properly re-render the page range', () => {
           cy.findByLabelText('Previous').click();
           // get the current page button
-          cy.get('ol')
-            .find('button')
-            .get('[aria-current="page"]')
-            .should('contain.text', '4');
+          cy.get('ol').find('button').get('[aria-current="page"]').should('contain.text', '4');
 
           cy.findByLabelText('Previous').click();
           // get the current page button
-          cy.get('ol')
-            .find('button')
-            .get('[aria-current="page"]')
-            .should('contain.text', '3');
+          cy.get('ol').find('button').get('[aria-current="page"]').should('contain.text', '3');
         });
       });
 
@@ -218,26 +174,17 @@ describe('Pagination', () => {
         beforeEach(() => {
           // click the 'page 5' button
           // get the last page button in the range
-          cy.get('ol')
-            .find('button')
-            .last()
-            .click();
+          cy.get('ol').find('button').last().click();
         });
 
         it('should properly re-render the page range', () => {
           cy.findByLabelText('Next').click();
           // get the current page button
-          cy.get('ol')
-            .find('button')
-            .get('[aria-current="page"]')
-            .should('contain.text', '6');
+          cy.get('ol').find('button').get('[aria-current="page"]').should('contain.text', '6');
 
           cy.findByLabelText('Next').click();
           // get the current page button
-          cy.get('ol')
-            .find('button')
-            .get('[aria-current="page"]')
-            .should('contain.text', '7');
+          cy.get('ol').find('button').get('[aria-current="page"]').should('contain.text', '7');
         });
       });
 
@@ -245,20 +192,11 @@ describe('Pagination', () => {
         it('should properly re-render the page range (96,97,98,99,100)', () => {
           cy.findByLabelText('Last').click();
           // get the first page button in the range
-          cy.get('ol')
-            .find('button')
-            .first()
-            .should('contain.text', '6');
+          cy.get('ol').find('button').first().should('contain.text', '6');
           // get the current page button
-          cy.get('ol')
-            .find('button')
-            .get('[aria-current="page"]')
-            .should('contain.text', '10');
+          cy.get('ol').find('button').get('[aria-current="page"]').should('contain.text', '10');
           // get the last page button in the range
-          cy.get('ol')
-            .find('button')
-            .last()
-            .should('contain.text', '10');
+          cy.get('ol').find('button').last().should('contain.text', '10');
         });
       });
     });
@@ -293,9 +231,7 @@ describe('Pagination', () => {
 
     context('given the page list', () => {
       it('should have three list items', () => {
-        cy.get('ol')
-          .find('li')
-          .should('have.length', 3);
+        cy.get('ol').find('li').should('have.length', 3);
       });
     });
   });
@@ -316,88 +252,47 @@ describe('Pagination', () => {
 
       context('given the input field', () => {
         it('should be a text field', () => {
-          cy.get('form')
-            .find('input')
-            .should('have.attr', 'type', 'text');
+          cy.get('form').find('input').should('have.attr', 'type', 'text');
         });
 
         it('should have an aria-label', () => {
-          cy.get('form')
-            .find('input')
-            .should('have.ariaLabel', 'Go to page number');
+          cy.get('form').find('input').should('have.ariaLabel', 'Go to page number');
         });
 
         it('should set size to 1', () => {
-          cy.get('form')
-            .find('input')
-            .should('have.attr', 'size', '1');
+          cy.get('form').find('input').should('have.attr', 'size', '1');
         });
 
         it('should go to the specified page if the value is within the range', () => {
-          cy.get('form')
-            .find('input')
-            .clear()
-            .type('8');
-          cy.get('form')
-            .find('input')
-            .type('{enter}');
+          cy.get('form').find('input').clear().type('8');
+          cy.get('form').find('input').type('{enter}');
 
           // get the current page button
-          cy.get('ol')
-            .find('button')
-            .get('[aria-current="page"]')
-            .should('contain.text', '8');
+          cy.get('ol').find('button').get('[aria-current="page"]').should('contain.text', '8');
         });
 
         it('should go to the last page if a value is above the range size is submitted', () => {
-          cy.get('form')
-            .find('input')
-            .type('11');
-          cy.get('form')
-            .find('input')
-            .type('{enter}');
+          cy.get('form').find('input').type('11');
+          cy.get('form').find('input').type('{enter}');
 
           // get the current page button
-          cy.get('ol')
-            .find('button')
-            .get('[aria-current="page"]')
-            .should('contain.text', '10');
+          cy.get('ol').find('button').get('[aria-current="page"]').should('contain.text', '10');
           // get the first page button in the range
-          cy.get('ol')
-            .find('button')
-            .first()
-            .should('contain.text', '6');
+          cy.get('ol').find('button').first().should('contain.text', '6');
           // get the last page button in the range
-          cy.get('ol')
-            .find('button')
-            .last()
-            .should('contain.text', '10');
+          cy.get('ol').find('button').last().should('contain.text', '10');
         });
 
         it('should go to the first page if a number below the range size is submitted', () => {
-          cy.get('form')
-            .find('input')
-            .clear()
-            .type('0');
-          cy.get('form')
-            .find('input')
-            .type('{enter}');
+          cy.get('form').find('input').clear().type('0');
+          cy.get('form').find('input').type('{enter}');
 
           // get the current page button
-          cy.get('ol')
-            .find('button')
-            .get('[aria-current="page"]')
-            .should('contain.text', '1');
+          cy.get('ol').find('button').get('[aria-current="page"]').should('contain.text', '1');
           // get the first page button in the range
-          cy.get('ol')
-            .find('button')
-            .first()
-            .should('contain.text', '1');
+          cy.get('ol').find('button').first().should('contain.text', '1');
           // get the last page button in the range
-          cy.get('ol')
-            .find('button')
-            .last()
-            .should('contain.text', '5');
+          cy.get('ol').find('button').last().should('contain.text', '5');
         });
       });
     });

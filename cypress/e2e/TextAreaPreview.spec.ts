@@ -1,17 +1,17 @@
 import * as h from '../helpers';
 
-const getTextInput = () => {
-  return cy.get(`[type="text"], [type="password"]`);
+const getTextArea = () => {
+  return cy.get(`textarea`);
 };
 
-describe('Text Input', () => {
+describe('Text Area', () => {
   before(() => {
     h.stories.visit();
   });
   ['Basic', 'Alert', 'Error'].forEach(story => {
     context(`given the '${story}' story is rendered`, () => {
       beforeEach(() => {
-        h.stories.load('Preview/Inputs/Text Input', story);
+        h.stories.load('Preview/Inputs/Text Area', story);
       });
 
       it('should not have any axe errors', () => {
@@ -20,23 +20,21 @@ describe('Text Input', () => {
 
       context('when clicked', () => {
         beforeEach(() => {
-          getTextInput().click();
+          getTextArea().click();
         });
 
         it('should be focused', () => {
-          getTextInput().should('be.focused');
+          getTextArea().should('be.focused');
         });
       });
 
       context('when text is entered', () => {
         beforeEach(() => {
-          getTextInput()
-            .clear()
-            .type('Test');
+          getTextArea().clear().type('Test');
         });
 
         it('should reflect the text typed', () => {
-          getTextInput().should('have.value', 'Test');
+          getTextArea().should('have.value', 'Test');
         });
       });
     });
@@ -44,7 +42,7 @@ describe('Text Input', () => {
 
   context(`given the 'Disabled' story is rendered`, () => {
     beforeEach(() => {
-      h.stories.load('Preview/Inputs/Text Input', 'Disabled');
+      h.stories.load('Components/Inputs/TextArea', 'Disabled');
     });
 
     it('should not have any axe errors', () => {
@@ -52,13 +50,13 @@ describe('Text Input', () => {
     });
 
     it('should be disabled', () => {
-      getTextInput().should('be.disabled');
+      getTextArea().should('be.disabled');
     });
   });
 
   context(`given the 'Placeholder' story is rendered`, () => {
     beforeEach(() => {
-      h.stories.load('Preview/Inputs/Text Input', 'Placeholder');
+      h.stories.load('Components/Inputs/TextArea', 'Placeholder');
     });
 
     it('should not have any axe errors', () => {
@@ -66,14 +64,12 @@ describe('Text Input', () => {
     });
 
     it('should render a placeholder text', () => {
-      getTextInput().should('have.attr', 'placeholder', 'user@email.com');
+      getTextArea().should('have.attr', 'placeholder', 'Let us know how we did!');
     });
 
     it('should reflect the text typed', () => {
-      getTextInput()
-        .clear()
-        .type('Test');
-      getTextInput().should('have.value', 'Test');
+      getTextArea().clear().type('Test');
+      getTextArea().should('have.value', 'Test');
     });
   });
 });

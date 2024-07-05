@@ -4,7 +4,7 @@ function getIframeBody($iframe: JQuery): JQuery {
 }
 
 describe('Storybook', () => {
-  it('should render the Welcome page', function() {
+  it('should render the Welcome page', function () {
     // allow skipping this test
     if (Cypress.env('skip_storybook_test')) {
       this.skip();

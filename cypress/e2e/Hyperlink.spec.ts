@@ -15,9 +15,7 @@ describe('Hyperlink', () => {
     });
 
     it('should render the correct text', () => {
-      cy.get('a')
-        .first()
-        .should('contain', 'Hyperlink');
+      cy.get('a').first().should('contain', 'Hyperlink');
     });
   });
 
@@ -31,9 +29,7 @@ describe('Hyperlink', () => {
     });
 
     it('should render the correct text', () => {
-      cy.get('a')
-        .first()
-        .should('contain', 'External Hyperlink');
+      cy.get('a').first().should('contain', 'External Hyperlink');
     });
   });
 });

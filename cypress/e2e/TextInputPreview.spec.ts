@@ -1,17 +1,17 @@
 import * as h from '../helpers';
 
 const getTextInput = () => {
-  return cy.get(`[type="text"]`);
+  return cy.get(`[type="text"], [type="password"]`);
 };
 
-describe('TextInput', () => {
+describe('Text Input', () => {
   before(() => {
     h.stories.visit();
   });
   ['Basic', 'Alert', 'Error'].forEach(story => {
     context(`given the '${story}' story is rendered`, () => {
       beforeEach(() => {
-        h.stories.load('Components/Inputs/Text Input', story);
+        h.stories.load('Preview/Inputs/Text Input', story);
       });
 
       it('should not have any axe errors', () => {
@@ -30,9 +30,7 @@ describe('TextInput', () => {
 
       context('when text is entered', () => {
         beforeEach(() => {
-          getTextInput()
-            .clear()
-            .type('Test');
+          getTextInput().clear().type('Test');
         });
 
         it('should reflect the text typed', () => {
@@ -44,7 +42,7 @@ describe('TextInput', () => {
 
   context(`given the 'Disabled' story is rendered`, () => {
     beforeEach(() => {
-      h.stories.load('Components/Inputs/Text Input', 'Disabled');
+      h.stories.load('Preview/Inputs/Text Input', 'Disabled');
     });
 
     it('should not have any axe errors', () => {
@@ -58,7 +56,7 @@ describe('TextInput', () => {
 
   context(`given the 'Placeholder' story is rendered`, () => {
     beforeEach(() => {
-      h.stories.load('Components/Inputs/Text Input', 'Placeholder');
+      h.stories.load('Preview/Inputs/Text Input', 'Placeholder');
     });
 
     it('should not have any axe errors', () => {
@@ -70,9 +68,7 @@ describe('TextInput', () => {
     });
 
     it('should reflect the text typed', () => {
-      getTextInput()
-        .clear()
-        .type('Test');
+      getTextInput().clear().type('Test');
       getTextInput().should('have.value', 'Test');
     });
   });

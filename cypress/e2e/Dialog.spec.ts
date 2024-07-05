@@ -46,9 +46,7 @@ describe('Popup', () => {
           context(`when the preferred placement is set to ${io.placement}`, () => {
             beforeEach(() => {
               if (io.isMovedToSide) {
-                cy.findByTestId(`slide-${io.placement}`)
-                  .type('500')
-                  .trigger('change');
+                cy.findByTestId(`slide-${io.placement}`).type('500').trigger('change');
               }
               cy.findByRole('button', {name: io.placement}).click();
               cy.scrollTo(io.x, io.y);

@@ -138,9 +138,7 @@ describe('ColorPicker', () => {
         });
 
         it('should have check icon', () => {
-          getSwatch(color)
-            .find('.wd-icon')
-            .should('exist');
+          getSwatch(color).find('.wd-icon').should('exist');
         });
 
         context('when color reset is clicked', () => {
@@ -152,9 +150,7 @@ describe('ColorPicker', () => {
           });
 
           it('should set the color picker value to the reset color', () => {
-            getSwatch(resetColor!)
-              .find('.wd-icon')
-              .should('exist');
+            getSwatch(resetColor!).find('.wd-icon').should('exist');
           });
         });
       });
@@ -170,9 +166,7 @@ describe('ColorPicker', () => {
 
         it('should set the selected color to input value', () => {
           getOpenButton().click();
-          getSwatch(customColor)
-            .find('.wd-icon')
-            .should('exist');
+          getSwatch(customColor).find('.wd-icon').should('exist');
         });
       });
     });
@@ -206,9 +200,7 @@ describe('ColorPicker', () => {
 
         it('should have check icon', () => {
           getColorInput().focus();
-          getSwatch(color)
-            .find('.wd-icon')
-            .should('exist');
+          getSwatch(color).find('.wd-icon').should('exist');
         });
 
         context('when color reset is clicked', () => {

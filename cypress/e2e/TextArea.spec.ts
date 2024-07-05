@@ -30,9 +30,7 @@ describe('Text Area', () => {
 
       context('when text is entered', () => {
         beforeEach(() => {
-          getTextArea()
-            .clear()
-            .type('Test');
+          getTextArea().clear().type('Test');
         });
 
         it('should reflect the text typed', () => {
@@ -70,9 +68,7 @@ describe('Text Area', () => {
     });
 
     it('should reflect the text typed', () => {
-      getTextArea()
-        .clear()
-        .type('Test');
+      getTextArea().clear().type('Test');
       getTextArea().should('have.value', 'Test');
     });
   });

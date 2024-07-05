@@ -21,16 +21,12 @@ describe('Pill', () => {
 
       it('should be able to click on the first pill', () => {
         cy.findByText('The first pill is clicked!').should('not.exist');
-        cy.findAllByRole('button')
-          .eq(0)
-          .click();
+        cy.findAllByRole('button').eq(0).click();
         cy.findByText('The first pill is clicked!').should('be.visible');
       });
 
       it('should have the second pill disabled', () => {
-        cy.findAllByRole('button')
-          .eq(1)
-          .should('have.attr', 'disabled');
+        cy.findAllByRole('button').eq(1).should('have.attr', 'disabled');
       });
     });
   });
@@ -81,9 +77,7 @@ describe('Pill', () => {
     });
 
     it('should have the third pill disabled', () => {
-      cy.findAllByRole('button')
-        .eq(2)
-        .should('have.attr', 'disabled');
+      cy.findAllByRole('button').eq(2).should('have.attr', 'disabled');
     });
   });
 
@@ -97,16 +91,11 @@ describe('Pill', () => {
     });
 
     it('should have 2 pills', () => {
-      cy.get('#read-only-list')
-        .children()
-        .should('have.length', 2);
+      cy.get('#read-only-list').children().should('have.length', 2);
     });
 
     it('should have tooltip on the second button', () => {
-      cy.get('#read-only-list')
-        .children()
-        .eq(1)
-        .trigger('mouseover');
+      cy.get('#read-only-list').children().eq(1).trigger('mouseover');
       cy.findByRole('tooltip').should(
         'contain',
         "Read-only but with super long text in case you want to read a paragraph in a Pill which we don't recommend"

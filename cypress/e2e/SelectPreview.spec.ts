@@ -67,15 +67,11 @@ describe('Select', () => {
 
         context('the menu', () => {
           it('should be visible', () => {
-            cy.findByLabelText('Label')
-              .pipe(h.selectPreview.getMenu)
-              .should('be.visible');
+            cy.findByLabelText('Label').pipe(h.selectPreview.getMenu).should('be.visible');
           });
 
           it('should have focus', () => {
-            cy.findByLabelText('Label')
-              .pipe(h.selectPreview.getMenu)
-              .should('be.focused');
+            cy.findByLabelText('Label').pipe(h.selectPreview.getMenu).should('be.focused');
           });
 
           it('should have an aria-activedescendant attribute with the same value as the id of the first option ("E-mail")', () => {
@@ -107,9 +103,7 @@ describe('Select', () => {
 
         context(`when the "Phone" option (with the value "phone") is clicked`, () => {
           beforeEach(() => {
-            cy.findByLabelText('Label')
-              .pipe(h.selectPreview.getOption('Phone'))
-              .click();
+            cy.findByLabelText('Label').pipe(h.selectPreview.getOption('Phone')).click();
           });
 
           context('the select button', () => {
@@ -128,9 +122,7 @@ describe('Select', () => {
 
           context('the menu', () => {
             it('should not be visible', () => {
-              cy.findByLabelText('Label')
-                .pipe(h.selectPreview.getMenu)
-                .should('not.exist');
+              cy.findByLabelText('Label').pipe(h.selectPreview.getMenu).should('not.exist');
             });
           });
 
@@ -177,15 +169,11 @@ describe('Select', () => {
 
           context('the menu', () => {
             it('should be visible', () => {
-              cy.findByLabelText('Label')
-                .pipe(h.selectPreview.getMenu)
-                .should('be.visible');
+              cy.findByLabelText('Label').pipe(h.selectPreview.getMenu).should('be.visible');
             });
 
             it('should have focus', () => {
-              cy.findByLabelText('Label')
-                .pipe(h.selectPreview.getMenu)
-                .should('be.focused');
+              cy.findByLabelText('Label').pipe(h.selectPreview.getMenu).should('be.focused');
             });
           });
 
@@ -219,9 +207,7 @@ describe('Select', () => {
 
               context('when the enter key is pressed', () => {
                 beforeEach(() => {
-                  cy.findByLabelText('Label')
-                    .pipe(h.selectPreview.getMenu)
-                    .realType('{enter}');
+                  cy.findByLabelText('Label').pipe(h.selectPreview.getMenu).realType('{enter}');
                 });
 
                 context('the select button', () => {
@@ -240,9 +226,7 @@ describe('Select', () => {
 
                 context('the menu', () => {
                   it('should not be visible', () => {
-                    cy.findByLabelText('Label')
-                      .pipe(h.selectPreview.getMenu)
-                      .should('not.exist');
+                    cy.findByLabelText('Label').pipe(h.selectPreview.getMenu).should('not.exist');
                   });
                 });
 
@@ -273,9 +257,7 @@ describe('Select', () => {
 
             context('when the up arrow key is pressed', () => {
               beforeEach(() => {
-                cy.findByLabelText('Label')
-                  .pipe(h.selectPreview.getMenu)
-                  .realType('{uparrow}');
+                cy.findByLabelText('Label').pipe(h.selectPreview.getMenu).realType('{uparrow}');
               });
 
               context('the menu', () => {
@@ -344,9 +326,7 @@ describe('Select', () => {
 
     context('when the menu is opened', () => {
       beforeEach(() => {
-        cy.findByLabelText('Label')
-          .focus()
-          .realType('{downarrow}');
+        cy.findByLabelText('Label').focus().realType('{downarrow}');
       });
 
       context('the menu', () => {
@@ -384,12 +364,8 @@ describe('Select', () => {
                 // Wait for menu to fully close before we open it again (so we
                 // don't interrupt the menu's closing animation and cause it to
                 // re-open while it's in the middle of closing)
-                cy.findByLabelText('Label')
-                  .pipe(h.selectPreview.getMenu)
-                  .should('not.exist');
-                cy.findByLabelText('Label')
-                  .focus()
-                  .realType('{downarrow}');
+                cy.findByLabelText('Label').pipe(h.selectPreview.getMenu).should('not.exist');
+                cy.findByLabelText('Label').focus().realType('{downarrow}');
               });
 
               context('the menu', () => {
@@ -448,9 +424,7 @@ describe('Select', () => {
 
     context('when the menu is opened', () => {
       beforeEach(() => {
-        cy.findByLabelText('Label (Disabled Options)')
-          .focus()
-          .realType('{downarrow}');
+        cy.findByLabelText('Label (Disabled Options)').focus().realType('{downarrow}');
       });
 
       context('the "Carrier Pigeon" option', () => {
@@ -680,9 +654,7 @@ describe('Select', () => {
         () => {
           context('when "s" is typed', () => {
             beforeEach(() => {
-              cy.findByLabelText('Label')
-                .pipe(h.selectPreview.getMenu)
-                .realType('s');
+              cy.findByLabelText('Label').pipe(h.selectPreview.getMenu).realType('s');
             });
 
             context('the menu', () => {
@@ -752,9 +724,7 @@ describe('Select', () => {
 
           context('when "the onto" is typed', () => {
             beforeEach(() => {
-              cy.findByLabelText('Label')
-                .pipe(h.selectPreview.getMenu)
-                .realType('the onto');
+              cy.findByLabelText('Label').pipe(h.selectPreview.getMenu).realType('the onto');
             });
 
             context('the menu', () => {
@@ -784,9 +754,7 @@ describe('Select', () => {
         () => {
           context('when "sa" is typed', () => {
             beforeEach(() => {
-              cy.findByLabelText('Label')
-                .pipe(h.selectPreview.getMenu)
-                .realType('sa');
+              cy.findByLabelText('Label').pipe(h.selectPreview.getMenu).realType('sa');
             });
 
             context('the menu', () => {
@@ -801,9 +769,7 @@ describe('Select', () => {
 
           context('when "san " is typed', () => {
             beforeEach(() => {
-              cy.findByLabelText('Label')
-                .pipe(h.selectPreview.getMenu)
-                .realType('san ');
+              cy.findByLabelText('Label').pipe(h.selectPreview.getMenu).realType('san ');
             });
 
             context('the menu', () => {
@@ -818,9 +784,7 @@ describe('Select', () => {
 
           context('when "san m" is typed', () => {
             beforeEach(() => {
-              cy.findByLabelText('Label')
-                .pipe(h.selectPreview.getMenu)
-                .realType('san m');
+              cy.findByLabelText('Label').pipe(h.selectPreview.getMenu).realType('san m');
             });
 
             context('the menu', () => {
@@ -841,10 +805,7 @@ describe('Select', () => {
       () => {
         context('when "Dallas (United States)" is selected and the menu is opened', () => {
           beforeEach(() => {
-            cy.findByLabelText('Label')
-              .focus()
-              .type('d')
-              .click();
+            cy.findByLabelText('Label').focus().type('d').click();
           });
 
           context('the menu', () => {
@@ -861,10 +822,7 @@ describe('Select', () => {
           'when "The Ontologically..." (text wrapped) is selected and the menu is opened',
           () => {
             beforeEach(() => {
-              cy.findByLabelText('Label')
-                .focus()
-                .type('the onto')
-                .click();
+              cy.findByLabelText('Label').focus().type('the onto').click();
             });
 
             context('the menu', () => {
@@ -889,9 +847,7 @@ describe('Select', () => {
     context('when the page is scrolled to the bottom', () => {
       beforeEach(() => {
         cy.scrollTo('bottom');
-        cy.window()
-          .its('scrollY')
-          .as('originalWindowScrollY');
+        cy.window().its('scrollY').as('originalWindowScrollY');
       });
 
       context('when the bottommost select button is clicked', () => {

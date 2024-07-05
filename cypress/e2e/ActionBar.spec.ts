@@ -20,16 +20,12 @@ describe('Action Bar', () => {
       });
 
       it('should have 2 buttons inside the "region"', () => {
-        cy.findByRole('region')
-          .findAllByRole('button')
-          .should('have.length', 2);
+        cy.findByRole('region').findAllByRole('button').should('have.length', 2);
       });
 
       context('when the first button focused', () => {
         beforeEach(() => {
-          cy.findAllByRole('button')
-            .eq(0)
-            .focus();
+          cy.findAllByRole('button').eq(0).focus();
         });
 
         context('when the tab key is pressed', () => {
@@ -55,9 +51,7 @@ describe('Action Bar', () => {
     });
 
     it('should have 4 buttons inside the "region"', () => {
-      cy.findByRole('region')
-        .findAllByRole('button')
-        .should('have.length', 4);
+      cy.findByRole('region').findAllByRole('button').should('have.length', 4);
     });
 
     it('should show the "More" button', () => {
@@ -78,9 +72,7 @@ describe('Action Bar', () => {
       });
 
       it('should have 3 buttons inside the "region"', () => {
-        cy.findByRole('region')
-          .findAllByRole('button')
-          .should('have.length', 3);
+        cy.findByRole('region').findAllByRole('button').should('have.length', 3);
       });
 
       context('when the "Second Action" is focused and tab key is clicked', () => {
@@ -104,9 +96,7 @@ describe('Action Bar', () => {
         });
 
         it('should contain Third Action', () => {
-          cy.findAllByRole('menuitem')
-            .eq(0)
-            .should('contain', 'Third Action');
+          cy.findAllByRole('menuitem').eq(0).should('contain', 'Third Action');
         });
       });
     });
@@ -117,9 +107,7 @@ describe('Action Bar', () => {
       });
 
       it('should have 2 buttons inside the "region"', () => {
-        cy.findByRole('region')
-          .findAllByRole('button')
-          .should('have.length', 2);
+        cy.findByRole('region').findAllByRole('button').should('have.length', 2);
       });
 
       context('when the "First Action" is focused and tab key is clicked', () => {
@@ -143,9 +131,7 @@ describe('Action Bar', () => {
         });
 
         it('should contain Second Action', () => {
-          cy.findAllByRole('menuitem')
-            .eq(0)
-            .should('contain', 'Second Action');
+          cy.findAllByRole('menuitem').eq(0).should('contain', 'Second Action');
         });
       });
     });
@@ -163,9 +149,7 @@ describe('Action Bar', () => {
       });
 
       it('should have 3 visible buttons inside the "region"', () => {
-        cy.findByRole('region')
-          .findAllByRole('button')
-          .should('have.length', 3);
+        cy.findByRole('region').findAllByRole('button').should('have.length', 3);
       });
 
       it('should focus on the "More" button', () => {
@@ -174,9 +158,7 @@ describe('Action Bar', () => {
 
       it('should have button inside the "menu"', () => {
         cy.findByRole('button', {name: 'More actions'}).click();
-        cy.findByRole('menu')
-          .findAllByRole('menuitem')
-          .should('have.length', 1);
+        cy.findByRole('menu').findAllByRole('menuitem').should('have.length', 1);
       });
     }
   );

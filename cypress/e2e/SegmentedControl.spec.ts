@@ -65,9 +65,7 @@ describe('SegmentedControl', () => {
 
       context('when the first button is active and focused', () => {
         beforeEach(() => {
-          cy.findByRole('button', {name: 'Table'})
-            .click()
-            .focus();
+          cy.findByRole('button', {name: 'Table'}).click().focus();
         });
 
         context('when the tab key is pressed', () => {
@@ -158,9 +156,7 @@ describe('SegmentedControl', () => {
 
     context('when the first button is active and focused', () => {
       beforeEach(() => {
-        cy.findByRole('button', {name: 'שולחן'})
-          .click()
-          .focus();
+        cy.findByRole('button', {name: 'שולחן'}).click().focus();
       });
 
       context('when the tab key is pressed', () => {

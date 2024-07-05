@@ -20,9 +20,7 @@ describe('Tabs', () => {
       });
 
       it('should have elements with a role of "tab" inside the "tablist"', () => {
-        cy.findByRole('tablist')
-          .findByRole('tab', {name: 'First Tab'})
-          .should('be.visible');
+        cy.findByRole('tablist').findByRole('tab', {name: 'First Tab'}).should('be.visible');
       });
 
       it('should have "aria-selected=true" for the first tab', () => {
@@ -70,9 +68,7 @@ describe('Tabs', () => {
 
       context('when the first tab is active and focused', () => {
         beforeEach(() => {
-          cy.findByRole('tab', {name: 'First Tab'})
-            .click()
-            .focus();
+          cy.findByRole('tab', {name: 'First Tab'}).click().focus();
         });
 
         context('when the tab key is pressed', () => {
@@ -250,9 +246,7 @@ describe('Tabs', () => {
 
     context('when the first tab is active and focused', () => {
       beforeEach(() => {
-        cy.findByRole('tab', {name: 'First Tab'})
-          .click()
-          .focus();
+        cy.findByRole('tab', {name: 'First Tab'}).click().focus();
       });
 
       context('when the right arrow key is pressed', () => {
@@ -415,9 +409,7 @@ describe('Tabs', () => {
 
     context('when the first tab is active and focused', () => {
       beforeEach(() => {
-        cy.findByRole('tab', {name: 'ראשון'})
-          .click()
-          .focus();
+        cy.findByRole('tab', {name: 'ראשון'}).click().focus();
       });
 
       context('when the tab key is pressed', () => {
@@ -502,16 +494,12 @@ describe('Tabs', () => {
     });
 
     it('should not have scroll', () => {
-      cy.findByRole('tablist')
-        .its('scrollX')
-        .should('not.exist');
+      cy.findByRole('tablist').its('scrollX').should('not.exist');
     });
 
     context('when the "First Tab" is focused', () => {
       beforeEach(() => {
-        cy.findByRole('tab', {name: 'First Tab'})
-          .click()
-          .focus();
+        cy.findByRole('tab', {name: 'First Tab'}).click().focus();
       });
 
       context('when the Tab key is pressed', () => {
@@ -543,16 +531,12 @@ describe('Tabs', () => {
       });
 
       it('should not have scroll', () => {
-        cy.findByRole('tablist')
-          .its('scrollX')
-          .should('not.exist');
+        cy.findByRole('tablist').its('scrollX').should('not.exist');
       });
 
       context('when the "First Tab" is focused', () => {
         beforeEach(() => {
-          cy.findByRole('tab', {name: 'First Tab'})
-            .click()
-            .focus();
+          cy.findByRole('tab', {name: 'First Tab'}).click().focus();
         });
 
         context('when the Tab key is pressed', () => {
@@ -576,9 +560,7 @@ describe('Tabs', () => {
         });
 
         it('should have the fourth Tab as the first menu item', () => {
-          cy.findAllByRole('menuitem')
-            .eq(0)
-            .should('contain', 'Fourth Tab');
+          cy.findAllByRole('menuitem').eq(0).should('contain', 'Fourth Tab');
         });
 
         context('when the "Sixth Tab" is clicked', () => {
@@ -611,9 +593,7 @@ describe('Tabs', () => {
       });
 
       it('should not have scroll', () => {
-        cy.findByRole('tablist')
-          .its('scrollX')
-          .should('not.exist');
+        cy.findByRole('tablist').its('scrollX').should('not.exist');
       });
 
       it('should show only 2 tab items', () => {
@@ -630,9 +610,7 @@ describe('Tabs', () => {
         });
 
         it('should have the third Tab as the first menu item', () => {
-          cy.findAllByRole('menuitem')
-            .eq(0)
-            .should('contain', 'Third Tab');
+          cy.findAllByRole('menuitem').eq(0).should('contain', 'Third Tab');
         });
       });
     });
@@ -651,9 +629,7 @@ describe('Tabs', () => {
       });
 
       it('should not have scroll', () => {
-        cy.findByRole('tablist')
-          .its('scrollX')
-          .should('not.exist');
+        cy.findByRole('tablist').its('scrollX').should('not.exist');
       });
 
       it('should show no tab items', () => {
@@ -670,9 +646,7 @@ describe('Tabs', () => {
         });
 
         it('should have the third Tab as the first menu item', () => {
-          cy.findAllByRole('menuitem')
-            .eq(0)
-            .should('contain', 'First Tab');
+          cy.findAllByRole('menuitem').eq(0).should('contain', 'First Tab');
         });
       });
     });
@@ -688,9 +662,7 @@ describe('Tabs', () => {
       });
 
       it('should have scroll behavior', () => {
-        cy.findByRole('tablist')
-          .its('scrollX')
-          .should('not.equal', 0);
+        cy.findByRole('tablist').its('scrollX').should('not.equal', 0);
       });
     });
   });

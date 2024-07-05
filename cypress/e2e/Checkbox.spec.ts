@@ -54,9 +54,7 @@ describe('Checkbox', () => {
     });
 
     it('should have the correct attributes', () => {
-      getCheckbox()
-        .eq(1)
-        .click();
+      getCheckbox().eq(1).click();
       getCheckbox()
         .eq(0)
         .should('have.prop', 'indeterminate', true)
